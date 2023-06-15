@@ -1,0 +1,94 @@
+
+<html>
+
+<body>
+
+    <button onclick="getFile()">Choose</button>
+
+</body>
+<script type="module">
+import init, {winnings} from "./kadet/pkg/kadet.js";
+
+// store a reference to our file handle
+let fileHandle;
+
+async function getFile() {
+  // open file picker
+  [fileHandle] = await window.showDirectoryPicker();
+
+  if (fileHandle.kind === 'file') {
+    // run file code
+  } else if (fileHandle.kind === 'directory') {
+    // run directory code
+  }
+
+}
+
+const foo = `
+PokerStars Hand #237451615499: Tournament #3443583345, $0.91+$0.09 USD Hold'em No Limit - Level IX (200/400) - 2022/07/19 12:45:55 EET [2022/07/19 5:45:55 ET]
+Table '3443583345 2' 9-max Seat #5 is the button
+Seat 1: lennart65632 (12354 in chips)
+Seat 2: DENbarcelona (8432 in chips)
+Seat 3: doppelkorn63 (4728 in chips)
+Seat 4: 12blackartus (8984 in chips)
+Seat 5: Cargat (4895 in chips)
+Seat 6: Dol Cheep (9285 in chips)
+Seat 7: lolo011274 (4663 in chips)
+Seat 8: johnnyjohnM (3213 in chips)
+Seat 9: kahoona1092 (10946 in chips)
+lennart65632: posts the ante 25
+DENbarcelona: posts the ante 25
+doppelkorn63: posts the ante 25
+12blackartus: posts the ante 25
+Cargat: posts the ante 25
+Dol Cheep: posts the ante 25
+lolo011274: posts the ante 25
+johnnyjohnM: posts the ante 25
+kahoona1092: posts the ante 25
+Dol Cheep: posts small blind 200
+lolo011274: posts big blind 400
+*** HOLE CARDS ***
+Dealt to Dol Cheep [Kh Ah]
+johnnyjohnM: folds
+kahoona1092: raises 1225 to 1625
+lennart65632: calls 1625
+DENbarcelona: folds
+doppelkorn63: folds
+12blackartus: folds
+Cargat: folds
+Dol Cheep: calls 1425
+lolo011274: folds
+*** FLOP *** [9h 5c 3h]
+Dol Cheep: checks
+kahoona1092: checks
+lennart65632: bets 5500
+Dol Cheep: raises 2135 to 7635 and is all-in
+kahoona1092: folds
+lennart65632: calls 2135
+*** TURN *** [9h 5c 3h] [9c]
+*** RIVER *** [9h 5c 3h 9c] [Js]
+*** SHOW DOWN ***
+Dol Cheep: shows [Kh Ah] (a pair of Nines)
+lennart65632: shows [5s Ad] (two pair, Nines and Fives)
+lennart65632 collected 20770 from pot
+*** SUMMARY ***
+Total pot 20770 | Rake 0
+Board [9h 5c 3h 9c Js]
+Seat 1: lennart65632 showed [5s Ad] and won (20770) with two pair, Nines and Fives
+Seat 2: DENbarcelona folded before Flop (didn't bet)
+Seat 3: doppelkorn63 folded before Flop (didn't bet)
+Seat 4: 12blackartus folded before Flop (didn't bet)
+Seat 5: Cargat (button) folded before Flop (didn't bet)
+Seat 6: Dol Cheep (small blind) showed [Kh Ah] and lost with a pair of Nines
+Seat 7: lolo011274 (big blind) folded before Flop
+Seat 8: johnnyjohnM folded before Flop (didn't bet)
+Seat 9: kahoona1092 folded on the Flop`
+
+init()
+    .then(() => {
+        console.log(winnings(foo, "Dol Cheep"))
+    });
+
+
+</script>
+</html>
